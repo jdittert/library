@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <title>Local Library</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
         </header>
         <main>
             <div class="book-table">
-                <table>
+                <table id="book-table">
                     <thead>
                         <tr>
                             <th>Book Title</th>
@@ -34,6 +34,9 @@
                     </tbody>
                     <tfoot></tfoot>
                 </table>
+            </div>
+            <div>
+                <button id="populate">Populate Library</button>
             </div>
         </main>
         <footer>Copyright &copy; 2023 Jon Dittert</footer>
