@@ -1,0 +1,55 @@
+:root {
+    --dark-color: darkgreen;
+    --light-text: white;
+    --light-color: lightgreen;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr;
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+    min-width: 100%;
+}
+
+header, body,
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+header {
+    background-color: var(--dark-color);
+    color: var(--light-text);
+    padding: 1rem;
+    font-size: 48px;    
+}
+
+.book-table {
+    padding: 1rem;
+    align-items: center;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: lightblue;
+    margin: 0 auto;
+    min-width: 800px;  
+}
+
+td {
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+footer {
+    background-color: var(--light-color);
+    align-items: center;
+}
+
