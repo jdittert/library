@@ -53,3 +53,24 @@ footer {
     align-items: center;
 }
 
+main {
+    text-align: center;
+}
+
+button {
+    padding: 4px 16px;
+    background-color: var(--light-color);
+    font-weight: bold;
+}
+
+main div {
+    margin-bottom: 1rem;
+}
+
+.form-popup {
+    border: 2px solid black;
+    display: none;    
+    padding: 1rem;
+    width: 200px;
+    z-index: 9;
+}

@@ -35,8 +35,36 @@
                     <tfoot></tfoot>
                 </table>
             </div>
+            <!-- Add a new book form -->
+            <div>
+                <button id="new-book">New Book</button>
+            </div>
             <div>
                 <button id="populate">Populate Library</button>
+            </div>
+            <div class="form-popup" id="popup-form">
+                <div>
+                    <label for="book-title">Title</label>
+                    <input type="text" name="book-title" id="book-title" class="popupInput">
+                </div>
+                <div>
+                    <label for="book-author">Author</label>
+                    <input type="text" name="book-author" id="book-author" class="popupInput">
+                </div>
+                <div>
+                    <label for="book-pages">Number of Pages</label>
+                    <input type="text" name="book-pages" id="book-pages" class="popupInput">
+                </div>
+                <div>
+                    <label for="book-status">Book Status</label>
+                    <select name="book-status" id="book-status" class="popupInput">
+                        <option value="read">Read</option>
+                        <option value="not read">Not Read</option>
+                    </select>
+                </div>
+                <div>
+                    <button type="submit" id="popup-submit">Add Book</button>
+                </div>
             </div>
         </main>
         <footer>Copyright &copy; 2023 Jon Dittert</footer>

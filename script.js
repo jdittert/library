@@ -37,4 +37,21 @@ function populateTable() {
 const populate = document.getElementById("populate");
 populate.addEventListener("click", populateTable);
 
+const newBook = document.getElementById("new-book");
+newBook.addEventListener("click", openForm);
+
+function openForm() {
+    document.getElementById("popup-form").style.display = "block";
+}
+
+function closeForm() {
+    document.getElementById("popup-form").style.display = "none";
+}
+
+window.onclick = function (event) {
+    const modal = document.getElementById("popup-form");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 console.log(myLibrary);
