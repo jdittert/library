@@ -1,21 +1,21 @@
 const myLibrary = [];
 
-const bookOne = {
-    title: "Green Eggs",
-    author: "Dr. Suess",
-    pages: 17,
-    status: "read"
-};
+function Book(title, author, pages, status) {
+    this.title = title
+    this.author = author
+    this.pages = pages
+    this.status = status
+}
 
-const bookTwo = {
-    title: "High Fidelity",
-    author: "Rob Hornby",
-    pages: 352,
-    status: "not read"
-};
+const bookOne = new Book("Green Eggs", "Dr. Suess", 17, "read");
+const bookTwo = new Book("High Fidelity", "Nick Hornby", 352, "not read");
 
-myLibrary.push(bookOne);
-myLibrary.push(bookTwo);
+function addBookToLibrary(item) {
+    myLibrary.push(item);
+}
+
+addBookToLibrary(bookOne);
+addBookToLibrary(bookTwo);
 
 function addBook(title) {
     const table = document.getElementById("book-table");
