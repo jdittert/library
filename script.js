@@ -37,21 +37,47 @@ function populateTable() {
 const populate = document.getElementById("populate");
 populate.addEventListener("click", populateTable);
 
+// Add a new book to the library
+
+function openForm() {
+    document.getElementById("form-wrapper").style.display = "block";
+}
+
 const newBook = document.getElementById("new-book");
 newBook.addEventListener("click", openForm);
 
-function openForm() {
-    document.getElementById("popup-form").style.display = "block";
+const popupSubmit = document.getElementById("popup-form");
+
+// Need check for blank inputs
+// Need populateTable to only add the next row and now all previous rows
+// Need to check for duplicate entries?
+function getBookData(event) {
+    const formData = new FormData(popupSubmit);
+    const formTitle = formData.get("book-title");
+    const formAuthor = formData.get("book-author");
+    const formPages = formData.get("book-pages");
+    const formStatus = formData.get("book-status");
+    const nextBook = new Book(formTitle, formAuthor, formPages, formStatus);
+    addBookToLibrary(nextBook);
+    populateTable();
+    popupSubmit.reset();
+    event.preventDefault();
 }
 
+popupSubmit.addEventListener("submit", getBookData);
+
+// This does not work as intended
+/*
 function closeForm() {
     document.getElementById("popup-form").style.display = "none";
 }
+
 
 window.onclick = function (event) {
     const modal = document.getElementById("popup-form");
     if (event.target == modal) {
         modal.style.display = "none";
     }
-}
+} */
+
 console.log(myLibrary);
