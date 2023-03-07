@@ -6,16 +6,17 @@ function Book(title, author, pages, status) {
     this.pages = pages
     this.status = status
 }
-
+/*
 const bookOne = new Book("Green Eggs", "Dr. Suess", 17, "read");
 const bookTwo = new Book("High Fidelity", "Nick Hornby", 352, "not read");
-
+*/
 function addBookToLibrary(item) {
     myLibrary.push(item);
 }
-
+/*
 addBookToLibrary(bookOne);
 addBookToLibrary(bookTwo);
+*/
 
 function addBook(Book) {
     const table = document.getElementById("book-table");
@@ -30,12 +31,13 @@ function addBook(Book) {
     cell4.innerText = Book.status;
 }
 
+// Load current library on page refresh
+
 function populateTable() {    
     myLibrary.forEach(addBook);    
 }
 
-const populate = document.getElementById("populate");
-populate.addEventListener("click", populateTable);
+document.addEventListener("DOMContentLoaded", populateTable);
 
 // Add a new book to the library
 
@@ -59,7 +61,7 @@ function getBookData(event) {
     const formStatus = formData.get("book-status");
     const nextBook = new Book(formTitle, formAuthor, formPages, formStatus);
     addBookToLibrary(nextBook);
-    populateTable();
+    addBook(nextBook);
     popupSubmit.reset();
     event.preventDefault();
 }
