@@ -63,6 +63,10 @@ button {
     font-weight: bold;
 }
 
+button.remove {
+    background-color: red;
+}
+
 main div {
     margin-bottom: 1rem;
 }

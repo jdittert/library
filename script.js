@@ -25,10 +25,12 @@ function addBook(Book) {
     const cell2 = row.insertCell(1);
     const cell3 = row.insertCell(2);
     const cell4 = row.insertCell(3);
+    const cell5 = row.insertCell(4);    
     cell1.innerText = Book.title;
     cell2.innerText = Book.author;
     cell3.innerText = Book.pages;
     cell4.innerText = Book.status;
+    cell5.innerHTML = `<button class="remove" data-index="book-${myLibrary.indexOf(Book)}">Remove</button>`
 }
 
 // Load current library on page refresh
@@ -51,7 +53,6 @@ newBook.addEventListener("click", openForm);
 const popupSubmit = document.getElementById("popup-form");
 
 // Need check for blank inputs
-// Need populateTable to only add the next row and now all previous rows
 // Need to check for duplicate entries?
 function getBookData(event) {
     const formData = new FormData(popupSubmit);
@@ -60,7 +61,7 @@ function getBookData(event) {
     const formPages = formData.get("book-pages");
     const formStatus = formData.get("book-status");
     const nextBook = new Book(formTitle, formAuthor, formPages, formStatus);
-    addBookToLibrary(nextBook);
+    addBookToLibrary(nextBook);    
     addBook(nextBook);
     popupSubmit.reset();
     event.preventDefault();
