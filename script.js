@@ -6,17 +6,10 @@ function Book(title, author, pages, status) {
     this.pages = pages
     this.status = status
 }
-/*
-const bookOne = new Book("Green Eggs", "Dr. Suess", 17, "read");
-const bookTwo = new Book("High Fidelity", "Nick Hornby", 352, "not read");
-*/
+
 function addBookToLibrary(item) {
     myLibrary.push(item);
 }
-/*
-addBookToLibrary(bookOne);
-addBookToLibrary(bookTwo);
-*/
 
 function addBook(Book) {
     const table = document.getElementById("book-table");
@@ -30,12 +23,14 @@ function addBook(Book) {
     cell2.innerText = Book.author;
     cell3.innerText = Book.pages;
     cell4.innerText = Book.status;
-    cell5.innerHTML = `<button class="remove" data-index="book-${myLibrary.indexOf(Book)}">Remove</button>`
+    cell5.innerHTML = `<button class="remove" id="book-${myLibrary.indexOf(Book)}" data-index="${myLibrary.indexOf(Book)}">Remove</button>`
+    document.getElementById(`book-${myLibrary.indexOf(Book)}`).addEventListener("click", removeBook); 
 }
 
 // Load current library on page refresh
 
-function populateTable() {    
+function populateTable() {   
+    document.getElementById("book-table").innerHTML=""; 
     myLibrary.forEach(addBook);    
 }
 
@@ -68,6 +63,17 @@ function getBookData(event) {
 }
 
 popupSubmit.addEventListener("submit", getBookData);
+
+// Remove a book from the library
+
+function removeBook(event) {
+    const bookIndex = event.currentTarget.dataset.index;    
+    if (bookIndex > -1) {
+        myLibrary.splice(bookIndex, 1);
+    }    
+    populateTable();
+}
+
 
 // This does not work as intended
 /*
