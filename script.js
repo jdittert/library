@@ -11,6 +11,36 @@ function addBookToLibrary(item) {
     myLibrary.push(item);
 }
 
+// Load current library on page refresh
+
+function populateTable() {   
+    document.getElementById("book-table").innerHTML=""; 
+    myLibrary.forEach(addBook);    
+}
+
+document.addEventListener("DOMContentLoaded", populateTable);
+
+// Toggle the "read" status of a book
+
+function isBookRead(Book) {
+    if (Book.status === "read") {
+        return `${Book.status} <input type="checkbox" id="book-${myLibrary.indexOf(Book)}-status" name="book-${myLibrary.indexOf(Book)}-status" data-index="${myLibrary.indexOf(Book)}" checked>`
+    } 
+    return `${Book.status} <input type="checkbox" id="book-${myLibrary.indexOf(Book)}-status" name="book-${myLibrary.indexOf(Book)}-status" data-index="${myLibrary.indexOf(Book)}">`
+}
+
+function toggleBookStatus(event) {
+    const bookIndex = event.currentTarget.dataset.index;
+    const checkBox = event.currentTarget;    
+    const checkBook = myLibrary[bookIndex];
+    if (checkBox.checked === true) {
+        checkBook.status = "read";
+    } else {
+        checkBook.status = "not read";
+    }
+    populateTable();
+}
+
 function addBook(Book) {
     const table = document.getElementById("book-table");
     const row = table.insertRow(-1);
@@ -22,19 +52,11 @@ function addBook(Book) {
     cell1.innerText = Book.title;
     cell2.innerText = Book.author;
     cell3.innerText = Book.pages;
-    cell4.innerText = Book.status;
+    cell4.innerHTML = isBookRead(Book);
     cell5.innerHTML = `<button class="remove" id="book-${myLibrary.indexOf(Book)}" data-index="${myLibrary.indexOf(Book)}">Remove</button>`
+    document.getElementById(`book-${myLibrary.indexOf(Book)}-status`).addEventListener("change", toggleBookStatus);
     document.getElementById(`book-${myLibrary.indexOf(Book)}`).addEventListener("click", removeBook); 
 }
-
-// Load current library on page refresh
-
-function populateTable() {   
-    document.getElementById("book-table").innerHTML=""; 
-    myLibrary.forEach(addBook);    
-}
-
-document.addEventListener("DOMContentLoaded", populateTable);
 
 // Add a new book to the library
 

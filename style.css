@@ -43,20 +43,22 @@ table {
     border-collapse: collapse;
     background-color: burlywood;
     margin: 0 auto;
-    min-width: 800px;
+    min-width: 80%;
     box-shadow: 2px 2px 2px black;
 }
 
 th {
     font-size: 24px;
     color: navy;
-    background-color: antiquewhite;    
+    background-color: antiquewhite;
+    padding: 4px;    
 }
 
 td {
     border-style: inset;
     border-color: saddlebrown;
     border-width: 6px;
+    padding: 2px;
 }
 
 footer {
