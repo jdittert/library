@@ -12,7 +12,6 @@ function addBookToLibrary(item) {
 }
 
 // Load current library on page refresh
-
 function populateTable() {   
     document.getElementById("book-table").innerHTML=""; 
     myLibrary.forEach(addBook);    
@@ -21,7 +20,6 @@ function populateTable() {
 document.addEventListener("DOMContentLoaded", populateTable);
 
 // Toggle the "read" status of a book
-
 function isBookRead(Book) {
     if (Book.status === "read") {
         return `${Book.status} <input type="checkbox" id="book-${myLibrary.indexOf(Book)}-status" name="book-${myLibrary.indexOf(Book)}-status" data-index="${myLibrary.indexOf(Book)}" checked>`
@@ -41,6 +39,7 @@ function toggleBookStatus(event) {
     populateTable();
 }
 
+// Add a book to the library table
 function addBook(Book) {
     const table = document.getElementById("book-table");
     const row = table.insertRow(-1);
@@ -59,7 +58,6 @@ function addBook(Book) {
 }
 
 // Add a new book to the library
-
 function openForm() {
     document.getElementById("form-wrapper").style.display = "block";
 }
@@ -87,7 +85,6 @@ function getBookData(event) {
 popupSubmit.addEventListener("submit", getBookData);
 
 // Remove a book from the library
-
 function removeBook(event) {
     const bookIndex = event.currentTarget.dataset.index;    
     if (bookIndex > -1) {
@@ -95,7 +92,6 @@ function removeBook(event) {
     }    
     populateTable();
 }
-
 
 // This does not work as intended
 /*
