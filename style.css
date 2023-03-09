@@ -4,6 +4,10 @@
     --light-color: lightgreen;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -79,7 +83,7 @@ button {
     font-family: "Courier Prime", Courier, monospace;
 }
 
-button.remove {
+button.remove, #popup-cancel {
     background-color: red;
     border-radius: 8px;
 }
@@ -88,17 +92,23 @@ main div {
     margin-bottom: 1rem;
 }
 
-.form-popup {
+#form-wrapper {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    display: none;    
+}
+
+#new-book-form {    
     border: 2px solid black;
     border-radius: 8px;
-    box-shadow: 2px 2px 2px gray;
-    display: none;    
+    box-shadow: 2px 2px 2px gray;        
     padding: 1rem;
     width: 350px;
     height: auto;
     background-color: ghostwhite;
     text-align: left;    
-    position: absolute;
+    position: fixed;
     top: 20%;
     left: 35%;
     z-index: 9;
@@ -106,4 +116,9 @@ main div {
 
 .form-field {
     display: inline-block;
+}
+
+.button-field {
+    display: flex;
+    justify-content: space-between;
 }

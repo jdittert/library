@@ -60,7 +60,8 @@ function addBook(Book) {
 
 // Add a new book to the library
 function openForm() {
-    document.getElementById("form-wrapper").style.display = "block";
+    document.getElementById("form-wrapper").style.display = "block";    
+    document.getElementById("popup-cancel").addEventListener("click", closeForm);
 }
 
 const newBook = document.getElementById("new-book");
@@ -95,12 +96,6 @@ function removeBook(event) {
 }
 
 function closeForm() {
-    document.getElementById("form-wrapper").style.display = "none";
+    document.getElementById("form-wrapper").style.display = "none";    
 }
 
-window.onclick = function (event) {
-    const modal = document.getElementById("new-book-form");
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
-} 
