@@ -1,3 +1,4 @@
+// Set initial array, book object, and book object constructor
 const myLibrary = [];
 
 function Book(title, author, pages, status) {
@@ -11,10 +12,33 @@ function addBookToLibrary(item) {
     myLibrary.push(item);
 }
 
+// Popup form controls
+function closeForm() {
+    document.getElementById("form-wrapper").style.display = "none";    
+}
+
+function openForm() {
+    document.getElementById("form-wrapper").style.display = "block";    
+    document.getElementById("popup-cancel").addEventListener("click", closeForm);
+}
+
+const newBook = document.getElementById("new-book");
+newBook.addEventListener("click", openForm);
+const popupSubmit = document.getElementById("popup-form");
+
 // Load current library on page refresh
 function populateTable() {   
     document.getElementById("book-table").innerHTML=""; 
     myLibrary.forEach(addBook);    
+}
+
+// Remove a book from the library
+function removeBook(event) {
+    const bookIndex = event.currentTarget.dataset.index;    
+    if (bookIndex > -1) {
+        myLibrary.splice(bookIndex, 1);
+    }    
+    populateTable();
 }
 
 document.addEventListener("DOMContentLoaded", populateTable);
@@ -58,17 +82,6 @@ function addBook(Book) {
     closeForm();
 }
 
-// Add a new book to the library
-function openForm() {
-    document.getElementById("form-wrapper").style.display = "block";    
-    document.getElementById("popup-cancel").addEventListener("click", closeForm);
-}
-
-const newBook = document.getElementById("new-book");
-newBook.addEventListener("click", openForm);
-
-const popupSubmit = document.getElementById("popup-form");
-
 // Need check for blank inputs
 // Need to check for duplicate entries?
 function getBookData(event) {
@@ -85,17 +98,3 @@ function getBookData(event) {
 }
 
 popupSubmit.addEventListener("submit", getBookData);
-
-// Remove a book from the library
-function removeBook(event) {
-    const bookIndex = event.currentTarget.dataset.index;    
-    if (bookIndex > -1) {
-        myLibrary.splice(bookIndex, 1);
-    }    
-    populateTable();
-}
-
-function closeForm() {
-    document.getElementById("form-wrapper").style.display = "none";    
-}
-

@@ -4,16 +4,13 @@
     --light-color: lightgreen;
 }
 
-* {
-    box-sizing: border-box;
-}
-
 body {
     margin: 0;
     padding: 0;
     font-family: "Courier Prime", Courier, monospace;
 }
 
+/* Body wrapper setting up grid */
 .wrapper {
     display: grid;
     grid-template-rows: minmax(min-content, 2rem) minmax(min-content, 4fr) minmax(min-content, 2rem);
@@ -36,6 +33,11 @@ header {
     font-size: 48px;    
 }
 
+main {
+    text-align: center;
+}
+
+/* Table of books */
 .book-table {
     padding: 1rem;
     align-items: center;
@@ -65,15 +67,6 @@ td {
     padding: 2px;
 }
 
-footer {
-    background-color: var(--light-color);
-    align-items: center;
-}
-
-main {
-    text-align: center;
-}
-
 button {
     padding: 4px 16px;
     background-color: var(--light-color);
@@ -92,6 +85,7 @@ main div {
     margin-bottom: 1rem;
 }
 
+/* Wrapper to toggle popup form */
 #form-wrapper {
     position: relative;
     text-align: center;
@@ -121,4 +115,9 @@ main div {
 .button-field {
     display: flex;
     justify-content: space-between;
+}
+
+footer {
+    background-color: var(--light-color);
+    align-items: center;
 }
