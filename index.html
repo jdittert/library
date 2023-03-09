@@ -16,6 +16,8 @@
             <div class="heading">Local Library Project</div>
         </header>
         <main>
+            <!-- Hidden warning for blank fields -->
+            <div class="warning" id="warning">One of more of your fields contains only spaces.</div>
         
             <!-- Hidden popup form for adding a new book --> 
             <div id="form-wrapper">                
@@ -23,19 +25,19 @@
                     <form id="popup-form" action="">
                         <div class="form-field">
                             <label for="book-title">Title:</label>
-                            <input type="text" name="book-title" id="book-title" class="popupInput">
+                            <input type="text" name="book-title" id="book-title" class="popupInput" required>
                         </div>
                         <div class="form-field">
                             <label for="book-author">Author:</label>
-                            <input type="text" name="book-author" id="book-author" class="popupInput">
+                            <input type="text" name="book-author" id="book-author" class="popupInput" required>
                         </div>
                         <div class="form-field">
                             <label for="book-pages">Number of Pages:</label>
-                            <input type="text" name="book-pages" id="book-pages" class="popupInput">
+                            <input type="number" name="book-pages" id="book-pages" class="popupInput" min="1" max="9000" required>
                         </div>
                         <div class="form-field">
                             <label for="book-status">Book Status:</label>
-                            <select name="book-status" id="book-status" class="popupInput">
+                            <select name="book-status" id="book-status" class="popupInput" required>
                                 <option value="read">Read</option>
                                 <option value="not read">Not Read</option>
                             </select>

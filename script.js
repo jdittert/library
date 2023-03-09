@@ -18,6 +18,7 @@ function closeForm() {
 }
 
 function openForm() {
+    document.getElementById("warning").style.display = "none";
     document.getElementById("form-wrapper").style.display = "block";    
     document.getElementById("popup-cancel").addEventListener("click", closeForm);
 }
@@ -83,6 +84,10 @@ function addBook(Book) {
 }
 
 // Need check for blank inputs
+function checkForBlanks(text) {
+    return(text.trim().length === 0)
+}
+
 // Need to check for duplicate entries?
 function getBookData(event) {
     const formData = new FormData(popupSubmit);
@@ -90,11 +95,18 @@ function getBookData(event) {
     const formAuthor = formData.get("book-author");
     const formPages = formData.get("book-pages");
     const formStatus = formData.get("book-status");
+    if (checkForBlanks(formTitle) || checkForBlanks(formAuthor)) {
+        popupSubmit.reset();
+        closeForm();
+        document.getElementById("warning").style.display = "block";
+        event.preventDefault();
+        return        
+    } 
     const nextBook = new Book(formTitle, formAuthor, formPages, formStatus);
     addBookToLibrary(nextBook);    
     addBook(nextBook);
     popupSubmit.reset();
-    event.preventDefault();
+    event.preventDefault();      
 }
 
 popupSubmit.addEventListener("submit", getBookData);
