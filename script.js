@@ -55,6 +55,7 @@ function addBook(Book) {
     cell5.innerHTML = `<button class="remove" id="book-${myLibrary.indexOf(Book)}" data-index="${myLibrary.indexOf(Book)}">Remove</button>`
     document.getElementById(`book-${myLibrary.indexOf(Book)}-status`).addEventListener("change", toggleBookStatus);
     document.getElementById(`book-${myLibrary.indexOf(Book)}`).addEventListener("click", removeBook); 
+    closeForm();
 }
 
 // Add a new book to the library
@@ -93,16 +94,13 @@ function removeBook(event) {
     populateTable();
 }
 
-// This does not work as intended
-/*
 function closeForm() {
-    document.getElementById("popup-form").style.display = "none";
+    document.getElementById("form-wrapper").style.display = "none";
 }
 
-
 window.onclick = function (event) {
-    const modal = document.getElementById("popup-form");
-    if (event.target == modal) {
+    const modal = document.getElementById("new-book-form");
+    if (event.target === modal) {
         modal.style.display = "none";
     }
-} */
+} 

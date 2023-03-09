@@ -73,7 +73,10 @@ main {
 button {
     padding: 4px 16px;
     background-color: var(--light-color);
+    border-radius: 8px;
+    font-size: 18px;
     font-weight: bold;
+    font-family: "Courier Prime", Courier, monospace;
 }
 
 button.remove {
@@ -87,8 +90,20 @@ main div {
 
 .form-popup {
     border: 2px solid black;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px gray;
     display: none;    
     padding: 1rem;
-    width: 200px;
+    width: 350px;
+    height: auto;
+    background-color: ghostwhite;
+    text-align: left;    
+    position: absolute;
+    top: 20%;
+    left: 35%;
     z-index: 9;
+}
+
+.form-field {
+    display: inline-block;
 }

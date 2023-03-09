@@ -16,6 +16,35 @@
             <div class="heading">Local Library Project</div>
         </header>
         <main>
+            <div class="form-popup" id="form-wrapper">                
+                <div id="new-book-form">
+                    <form id="popup-form" action="">
+                        <div class="form-field">
+                            <label for="book-title">Title:</label>
+                            <input type="text" name="book-title" id="book-title" class="popupInput">
+                        </div>
+                        <div class="form-field">
+                            <label for="book-author">Author:</label>
+                            <input type="text" name="book-author" id="book-author" class="popupInput">
+                        </div>
+                        <div class="form-field">
+                            <label for="book-pages">Number of Pages:</label>
+                            <input type="text" name="book-pages" id="book-pages" class="popupInput">
+                        </div>
+                        <div class="form-field">
+                            <label for="book-status">Book Status:</label>
+                            <select name="book-status" id="book-status" class="popupInput">
+                                <option value="read">Read</option>
+                                <option value="not read">Not Read</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button type="submit" id="popup-submit">Add Book</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
             <div class="book-table">
                 <table>
                     <thead>
@@ -35,34 +64,7 @@
             <div>
                 <button id="new-book">New Book</button>
             </div>            
-            <div class="form-popup" id="form-wrapper">
-                
-                <form id="popup-form" action="">
-                    <div>
-                        <label for="book-title">Title</label>
-                        <input type="text" name="book-title" id="book-title" class="popupInput">
-                    </div>
-                    <div>
-                        <label for="book-author">Author</label>
-                        <input type="text" name="book-author" id="book-author" class="popupInput">
-                    </div>
-                    <div>
-                        <label for="book-pages">Number of Pages</label>
-                        <input type="text" name="book-pages" id="book-pages" class="popupInput">
-                    </div>
-                    <div>
-                        <label for="book-status">Book Status</label>
-                        <select name="book-status" id="book-status" class="popupInput">
-                            <option value="read">Read</option>
-                            <option value="not read">Not Read</option>
-                        </select>
-                    </div>
-                    <div>
-                        <button type="submit" id="popup-submit">Add Book</button>
-                    </div>
-                </form>
-
-            </div>
+            
         </main>
         <footer>Copyright &copy; 2023 Jon Dittert</footer>
     </div>
