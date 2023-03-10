@@ -91,10 +91,6 @@ button.remove, #popup-cancel {
     border-radius: 8px;
 }
 
-main div {
-    margin-bottom: 1rem;
-}
-
 /* Wrapper to toggle popup form */
 #form-wrapper {
     position: relative;
@@ -113,9 +109,14 @@ main div {
     background-color: ghostwhite;
     text-align: left;    
     position: fixed;
-    top: 20%;
-    left: 35%;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 9;
+}
+
+#new-book-form div {
+    margin-bottom: .5rem;
 }
 
 .form-field {
@@ -128,6 +129,5 @@ main div {
 }
 
 footer {
-    background-color: var(--light-color);
-    align-items: center;
+    background-color: var(--light-color);    
 }
