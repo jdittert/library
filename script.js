@@ -42,6 +42,7 @@ function removeBook(event) {
     populateTable();
 }
 
+// Load initial library if books are already stored
 document.addEventListener("DOMContentLoaded", populateTable);
 
 // Toggle the "read" status of a book
