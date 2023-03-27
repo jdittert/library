@@ -1,11 +1,13 @@
-// Set initial array, book object, and book object constructor
+// Set initial array and book class
 const myLibrary = [];
 
-function Book(title, author, pages, status) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.status = status
+class Book {
+    constructor(title, author, pages, status) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.status = status;
+    }
 }
 
 function addBookToLibrary(item) {
@@ -90,7 +92,7 @@ function checkForBlanks(text) {
 }
 
 // Need to check for duplicate entries?
-function getBookData(event) {
+function getBookData(event) {    
     const formData = new FormData(popupSubmit);
     const formTitle = formData.get("book-title");
     const formAuthor = formData.get("book-author");
